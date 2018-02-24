@@ -1,0 +1,1 @@
+include ':app', ':onebinding-annotation', ':onebinding-compiler', ':onebinding-api'
