@@ -2,19 +2,19 @@
 > ButterKnife依赖注入简单实现，仅供学习了解原理使用。
 
 
-原理流程图：
+### 原理流程图：
 
 ![](http://img.blog.csdn.net/20160910220340068)
 
 
-项目参考ButterKnife，对应结构为：
+### 项目参考ButterKnife，对应结构为：
 
 - onebinding-annotation: 定义的相关注解
 - onebinding-api: Android API
 - onebinding-compiler: 注解处理器相关
 - onebinding-app: 使用示例
 
-ButerrKnife工作流程：
+### ButerrKnife工作流程：
 
 当我们开始添加相应的注解开始编译后，ButterKnife中的注解处理器ButterKnifeProcessor类中的process()方法会执行一下操作:
 
@@ -24,7 +24,7 @@ ButerrKnife工作流程：
 - 当程序运行时，会加载对应类中bind()方法中的代码
 
 
-@BindView处理示例:
+### @BindView处理示例:
 
 ```
 // Process each @BindView element.
@@ -76,7 +76,7 @@ private void parseBindView(Element element, Map<TypeElement, BindingSet.Builder>
     // Assemble information on the field.
     int id = element.getAnnotation(BindView.class).value();
 
-	// 尝试先从缓存中获取
+    // 尝试先从缓存中获取
     BindingSet.Builder builder = builderMap.get(enclosingElement);
     QualifiedId qualifiedId = elementToQualifiedId(element, id);
     if (builder != null) {
@@ -91,7 +91,7 @@ private void parseBindView(Element element, Map<TypeElement, BindingSet.Builder>
       builder = getOrCreateBindingBuilder(builderMap, enclosingElement);
     }
 
-	// 将新生成的FieldViewBinding实体放入待构建集合中
+    // 将新生成的FieldViewBinding实体放入待构建集合中
     String name = simpleName.toString();
     TypeName type = TypeName.get(elementType);
     boolean required = isFieldRequired(element);
